@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Social Media Dashboard Design System - Modern Dark Theme with Gradients */
+
+@layer base {
+  :root {
+    /* Minimalist Light Background */
+    --background: 0 0% 100%;
+    --foreground: 222 84% 5%;
+
+    /* Clean Card Effects */
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 5%;
+    --card-glass: 0 0% 98%;
+
+    /* Popover & Overlays */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 5%;
+
+    /* Soft Blue Primary */
+    --primary: 221 83% 53%;
+    --primary-glow: 221 83% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light Gray Secondary */
+    --secondary: 210 40% 95%;
+    --secondary-foreground: 222 84% 5%;
+
+    /* Muted Elements */
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Soft Green Accent */
+    --accent: 142 76% 36%;
+    --accent-glow: 142 76% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Status Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+
+    /* Borders & Inputs */
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+
+    /* Minimal Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(214 32% 93%));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+    --gradient-bg: linear-gradient(135deg, hsl(var(--background)), hsl(210 40% 99%));
+    --gradient-glass: linear-gradient(135deg, hsl(210 40% 98% / 0.8), hsl(214 32% 95% / 0.4));
+
+    /* Subtle Shadows */
+    --shadow-primary: 0 4px 20px hsl(var(--primary) / 0.15);
+    --shadow-glass: 0 4px 20px hsl(214 32% 91% / 0.3);
+    --glow-primary: 0 0 20px hsl(var(--primary-glow) / 0.2);
+    --glow-accent: 0 0 15px hsl(var(--accent-glow) / 0.2);
+
+    /* Animation Variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+}
+
+/* Custom Component Styles */
+@layer components {
+  /* Clean Card Effect */
+  .glass-card {
+    @apply bg-gradient-to-br from-card to-card-glass/50 border border-border;
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* Responsive Gradient Buttons */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground shadow-lg;
+    @apply px-4 py-2 text-sm rounded-lg font-medium;
+    @apply sm:px-6 sm:py-3 sm:text-base sm:rounded-xl;
+    @apply lg:px-8 lg:py-3.5 lg:text-lg;
+    box-shadow: var(--shadow-primary);
+    transition: var(--transition-smooth);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow-primary);
+  }
+
+  .btn-accent {
+    @apply bg-gradient-to-r from-accent to-accent-glow text-accent-foreground;
+    @apply px-4 py-2 text-sm rounded-lg font-medium;
+    @apply sm:px-6 sm:py-3 sm:text-base sm:rounded-xl;
+    @apply lg:px-8 lg:py-3.5 lg:text-lg;
+    box-shadow: var(--glow-accent);
+    transition: var(--transition-smooth);
+  }
+
+  .btn-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow-accent);
+  }
+
+  /* Responsive Secondary Button */
+  .btn-secondary {
+    @apply bg-muted text-muted-foreground hover:bg-muted/80;
+    @apply px-3 py-2 text-sm rounded-lg font-medium;
+    @apply sm:px-4 sm:py-2 sm:text-base;
+    @apply lg:px-6 lg:py-3 lg:text-lg;
+    transition: var(--transition-smooth);
+  }
+
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Stat Cards */
+  .stat-card {
+    @apply glass-card p-6 rounded-2xl;
+    transition: var(--transition-smooth);
+  }
+
+  .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glass), var(--glow-primary);
+  }
+
+  /* Sidebar Styles */
+  .sidebar-nav {
+    @apply bg-card/50 backdrop-blur-xl border-r border-border/50;
+  }
+
+  /* Chart Container */
+  .chart-container {
+    @apply glass-card p-6 rounded-2xl;
+    background: var(--gradient-glass);
+  }
+
+  /* Notification Badge */
+  .notification-badge {
+    @apply bg-gradient-to-r from-accent to-accent-glow text-accent-foreground;
+    box-shadow: var(--glow-accent);
+  }
+
+  /* Trend Indicators */
+  .trend-up {
+    @apply text-success;
+    filter: drop-shadow(0 0 8px hsl(var(--success) / 0.5));
+  }
+
+  .trend-down {
+    @apply text-destructive;
+    filter: drop-shadow(0 0 8px hsl(var(--destructive) / 0.5));
+  }
+
+  /* Animated Background */
+  .animated-bg {
+    background: var(--gradient-bg);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Animation Classes */
+@layer utilities {
+  .animate-slide-up { animation: slideInUp 0.6s ease-out; }
+  .animate-bounce-in { animation: bounce-in 0.6s ease-out; }
+  .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
