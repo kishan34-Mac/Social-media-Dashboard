@@ -11,6 +11,8 @@ interface StatCardProps {
   color?: string;
   onClick?: () => void;
 }
+  // onClick?: () => void;
+
 
 const StatCard: React.FC<StatCardProps> = ({ 
   title, 
